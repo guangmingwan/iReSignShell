@@ -82,11 +82,21 @@ int main(int argc, const char * argv[]) {
          
         iReSignAppDelegate* app = [[iReSignAppDelegate alloc] init];
         [app initapp];
-        [app setNewBundleId:ivalue];
-        [app setProvisioning:mvalue];
-        [app setDestinationPath:ovalue];
-        [app setIpaPath:fvalue];
-        [app setCerName: svalue];
+        if(ivalue) {
+            [app setNewBundleId:ivalue];
+        }
+        if(mvalue) {
+            [app setProvisioning:mvalue];
+        }
+        if(ovalue) {
+            [app setDestinationPath:ovalue];
+        }
+        if(fvalue) {
+            [app setIpaPath:fvalue];
+        }
+        if(svalue) {
+            [app setCerName: svalue];
+        }
         [app resign:nil];
         //[app wait];
         return 0;
