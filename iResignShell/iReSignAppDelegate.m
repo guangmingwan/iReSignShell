@@ -495,27 +495,28 @@ static NSString *kiTunesMetadataFileName        = @"iTunesMetadata";
     }
 }
 - (void)setCerName:(char*)ccername {
-    NSString* cert = [NSString stringWithFormat:@"%s", ccername];
+    NSString* cert = [[NSString alloc] initWithCString:ccername encoding:NSUTF8StringEncoding];
     certName = cert;
 }
 - (void)setNewBundleId:(char*)newBundle {
-    bundleIDField = [NSString stringWithFormat:@"%s", newBundle];
+    bundleIDField = [[NSString alloc] initWithCString:newBundle encoding:NSUTF8StringEncoding];
 }
 
 - (void)setIpaPath:(char*)cipafile {
-    NSString* fileNameOpened = [NSString stringWithFormat:@"%s", cipafile];
+    
+    NSString* fileNameOpened = [[NSString alloc] initWithCString:cipafile encoding:NSUTF8StringEncoding];
     pathField  = fileNameOpened;
    
 }
 
 - (void)setProvisioning:(char*)cProvisioning {
-    NSString* fileNameOpened = [NSString stringWithFormat:@"%s", cProvisioning];
+    NSString* fileNameOpened = [[NSString alloc] initWithCString:cProvisioning encoding:NSUTF8StringEncoding];
     provisioningPathField = fileNameOpened;
     
 }
 
 -(void)setDestinationPath:(char*)cDestpath {
-    destinationPath = [NSString stringWithFormat:@"%s", cDestpath];
+    destinationPath = [[NSString alloc] initWithCString:cDestpath encoding:NSUTF8StringEncoding];
 }
 - (IBAction)entitlementBrowse:(id)sender {
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
