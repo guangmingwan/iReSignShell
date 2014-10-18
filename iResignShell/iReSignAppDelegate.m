@@ -8,6 +8,7 @@
 //
 
 #import "iReSignAppDelegate.h"
+#import <AvailabilityMacros.h>
 
 static NSString *kKeyPrefsBundleIDChange        = @"keyBundleIDChange";
 
@@ -17,6 +18,7 @@ static NSString *kKeyBundleIDPlistiTunesArtwork = @"softwareVersionBundleId";
 static NSString *kPayloadDirName                = @"Payload";
 static NSString *kInfoPlistFilename             = @"Info.plist";
 static NSString *kiTunesMetadataFileName        = @"iTunesMetadata";
+
 
 @implementation iReSignAppDelegate
 
@@ -311,9 +313,15 @@ static NSString *kiTunesMetadataFileName        = @"iTunesMetadata";
     if (appPath) {
         NSMutableArray *arguments = [NSMutableArray arrayWithObjects:@"-fs", certName, nil];
 		
-	NSDictionary *systemVersionDictionary = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-	float systemVersionFloat = [[systemVersionDictionary objectForKey:@"ProductVersion"] floatValue];
-	if (systemVersionFloat < 10.9f) {
+	//NSDictionary *systemVersionDictionary = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+	//float systemVersionFloat = [[systemVersionDictionary objectForKey:@"ProductVersion"] floatValue];
+        int versionString = [[NSProcessInfo processInfo] operatingSystem];
+	   UInt32 systemVersion;
+   
+    Gestalt(gestaltSystemVersion, &systemVersion);
+   
+    printf("The system version is 0x%x", systemVersion);
+	if (systemVersion < 0x1090) {
 		
 		/*
 		 Before OSX 10.9, code signing requires a version 1 signature.

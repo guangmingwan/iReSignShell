@@ -67,15 +67,7 @@ int main(int argc, const char * argv[]) {
         
         //printf ("hflag = %d, bflag = %d\n ivalue = %s\n svalue = %s\n fvalue = %s\n ovalue = %s\n",
         //        ivalue, hflag, bflag, svalue, fvalue, ovalue);
-        
-        
-        ovalue = "/Users/akabutoakira/";
-        ivalue = "com.adouming.testapp";
-        mvalue = "/Users/akabutoakira/AllAppInHouse.mobileprovision";
-        fvalue = "/Users/akabutoakira/Downloads/MobileClass.ipa";
-        svalue = "iPhone Distribution: YiZhi  Information Technology Co.,Ltd.";
-        
-        
+             
         if(argc <=1 && fvalue == NULL) {
             fprintf (stderr, "for help `-h'.\n", optopt);
             return 1;
