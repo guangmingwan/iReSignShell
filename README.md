@@ -5,9 +5,6 @@ Command line support for iResign
 use:
 =======
 $./iResignShell -h
-    iResignShell Re-signs an IPA file.
-    Usage: iResignShell [-h]
-    Usage: iResignShell [options] [-s cer_name] -m mobileprovision target.app(ipa)
 options:
 =======
     -h				display help
@@ -16,7 +13,7 @@ options:
     -o <output file/path>		ipa out folder
     -s <cer_name>			cer name，like: iPhone Developer: xxxx
     -m <mobileprovision>		App ID 's mobileprovision
-    Usage  examples :
+    Usage  examples : iResignShell [options] [-s cer_name] -m mobileprovision target.app(ipa)
 #print help
 =======
     iResignShell -h
