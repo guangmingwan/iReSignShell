@@ -1,6 +1,6 @@
 iReSignShell
 =======
-Command line support for iResign
+Command line support for iResign, GUI version please vist this https://github.com/maciekish/iReSign/
 =======
 use:
 =======
